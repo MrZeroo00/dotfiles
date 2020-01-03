@@ -15,7 +15,7 @@
     ~/.config/nvim/after/ftplugin/javascript.vim: nvim/after/ftplugin/javascript.vim
     ~/.config/nvim/after/ftplugin/vue.vim: nvim/after/ftplugin/vue.vim
     ~/.local/share/nvim/site/autoload/plug.vim: nvim/vim-plug/plug.vim
-    ~/.tmux.conf: tmux/.tmux.conf
+    ~/.tmux.conf: oh-my-tmux/.tmux.conf
     ~/.tmux.conf.local: tmux/.tmux.conf.local
     ~/.tmux/plugins/tpm: tmux/tpm
     ~/.zshrc: zsh/.zshrc 

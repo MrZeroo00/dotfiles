@@ -1,16 +1,16 @@
 [submodule "dotbot"]
-	path = dotbot
+	path = dotbot/
 	url = https://github.com/anishathalye/dotbot
 	ignore = dirty
 [submodule "nvim/vim-plug"]
-	path = nvim/vim-plug
+	path = nvim/vim-plug/
 	url = https://github.com/junegunn/vim-plug.git
-[submodule "tmux"]
-	path = tmux
+[submodule "oh-my-tmux"]
+	path = oh-my-tmux/
 	url = https://github.com/gpakosz/.tmux.git
 [submodule "tpm"]
-	path = tmux/tpm
+	path = tmux/tpm/
 	url = https://github.com/tmux-plugins/tpm
 [submodule "iterm2/themes/dracula"]
-	path = iterm2/themes/dracula
+	path = iterm2/themes/dracula/
 	url = https://github.com/dracula/iterm.git
