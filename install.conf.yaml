@@ -1,0 +1,25 @@
+- defaults:
+    link:
+        relink: true
+- clean: ['~']
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+- create:
+    - ~/.config/nvim
+    - ~/.config/nvim/after/ftplugin
+    - ~/.local/share/nvim/site/autoload/
+    - ~/.local/share/nvim/backup
+    - ~/.local/share/nvim/undo
+- link:
+    ~/.config/nvim/init.vim: nvim/init.vim
+    ~/.config/nvim/after/ftplugin/javascript.vim: nvim/after/ftplugin/javascript.vim
+    ~/.config/nvim/after/ftplugin/vue.vim: nvim/after/ftplugin/vue.vim
+    ~/.local/share/nvim/site/autoload/plug.vim: nvim/vim-plug/plug.vim
+    ~/.tmux.conf: tmux/.tmux.conf
+    ~/.tmux.conf.local: tmux/.tmux.conf.local
+    ~/.tmux/plugins/tpm: tmux/tpm
+    ~/.zshrc: zsh/.zshrc 
+    ~/.tigrc: tig/.tigrc
+    ~/.config/fish: fish
+    ~/.config/karabiner/karabiner.json: karabiner/karabiner.json
+    ~/.config/tmuxinator: tmux/tmuxinator
