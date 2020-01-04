@@ -1,0 +1,5 @@
+set selection-clipboard clipboard
+map <C-f> toggle_fullscreen
+map [fullscreen] <C-f> toggle_fullscreen
+set window-height 1200
+set window-width 1200
