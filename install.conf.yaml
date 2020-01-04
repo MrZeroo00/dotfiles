@@ -23,4 +23,5 @@
     ~/.config/fish: fish
     ~/.config/karabiner/karabiner.json: karabiner/karabiner.json
     ~/.config/tmuxinator: tmux/tmuxinator
+    ~/.surfingkeys.js: surfingkeys/.surfingkeys.js
     ~/.gitignore: git/.gitignore
