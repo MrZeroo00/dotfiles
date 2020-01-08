@@ -28,3 +28,4 @@
     ~/.config/vifm/colors/dracula.vifm: vifm/colors/dracula.vifm
     ~/.surfingkeys.js: surfingkeys/.surfingkeys.js
     ~/.gitignore: git/.gitignore
+    ~/.gitconfig: git/.gitconfig

@@ -1,0 +1,15 @@
+[core]
+	excludesfile = /Users/badrbouslikhin/.gitignore
+[user]
+	name = Badr Bouslikhin
+	email = bouslikhin.badr@gmail.com
+[credential]
+	helper = osxkeychain
+[alias]
+    graph = log --graph --all
+    l = log --graph --all --decorate
+    lg = log --graph --all --decorate --abbrev-commit
+    all = log --graph --pretty=oneline --all --abbrev-commit --decorate
+
+[log]
+    decorate = full
