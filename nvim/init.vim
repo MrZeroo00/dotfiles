@@ -197,9 +197,14 @@ let g:ale_fixers = {
     \'qml': ['qmlfmt'],
     \}
 
-" Guttentags configuration
-let g:gutentags_project_root = ['main.c']
+" Gutentags configuration
+let g:gutentags_project_root = ['main.c', '.git']
 nnoremap <leader>gd <C-]>
+let g:gutentags_file_list_command = {
+    \ 'markers': {
+        \ '.git': 'git ls-files',
+    \ },
+\ }
 
 " Goyo configuration
 function! s:goyo_enter()
