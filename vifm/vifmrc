@@ -174,8 +174,8 @@ filetype *.pdf
        \ zathura %f &, 
        \ {Open in Preview}
        \ open -a Preview.app,
-       \ {Open in Skim}
-       \ open -a Skim.app,
+       \ {Open in PDF Expert}
+       \ open -a PDF\ Expert.app,
 fileviewer *.pdf pdftotext -nopgbrk %c -
 
 " PostScript
