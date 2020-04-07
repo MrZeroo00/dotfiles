@@ -80,6 +80,8 @@ Plug 'machakann/vim-sandwich'
 Plug 'easymotion/vim-easymotion'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'junegunn/goyo.vim'
+Plug 'jiangmiao/auto-pairs'
+Plug 'metakirby5/codi.vim'
 call plug#end()
 
 " Mundo config
@@ -227,6 +229,14 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+" Codi configuration
+let g:codi#width = 60
+let g:codi#interpreters = {
+    \ 'python': {
+        \ 'bin': 'python3',
+        \ 'prompt': '^\(>>>\|\.\.\.\) ',
+        \ },
+\ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
