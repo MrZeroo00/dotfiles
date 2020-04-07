@@ -29,3 +29,5 @@
     ~/.surfingkeys.js: surfingkeys/.surfingkeys.js
     ~/.gitignore: git/.gitignore
     ~/.gitconfig: git/.gitconfig
+    ~/.config/yabai: yabai
+    ~/.config/skhd/skhdrc: skhd/skhdrc
