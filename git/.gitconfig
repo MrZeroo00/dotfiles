@@ -10,6 +10,7 @@
     l = log --graph --all --decorate
     lg = log --graph --all --decorate --abbrev-commit
     all = log --graph --pretty=oneline --all --abbrev-commit --decorate
+    alla = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --all
 
 [log]
     decorate = full
