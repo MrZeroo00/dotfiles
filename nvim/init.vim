@@ -186,7 +186,7 @@ let g:ale_linters = {
     \'javascript': ['eslint'],
     \'vue': ['eslint'],
     \'css': ['eslint'],
-    \'python': ['flake8'],
+    \'python': ['pyls'],
     \'c': ['cppcheck'],
     \}
 
@@ -195,7 +195,7 @@ let g:ale_fixers = {
     \'javascript': ['eslint'],
     \'vue': ['eslint'],
     \'css': ['eslint'],
-    \'python': ['autopep8'],
+    \'python': ['yapf'],
     \'qml': ['qmlfmt'],
     \}
 
