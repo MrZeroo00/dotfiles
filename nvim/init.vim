@@ -90,10 +90,10 @@ call plug#end()
 nnoremap <leader>u :MundoToggle<CR>
 
 " fzf.vim config
-map <c-p> :Buffers<cr>
-map <c-f> :FZF<cr>
-map <c-s> :Ag<cr>
-map <c-m> :FZFMru<cr>
+map <leader>b :Buffers<cr>
+map <leader>f :FZF<cr>
+map <leader>a :Ag<cr>
+map <leader>m :FZFMru<cr>
 let $FZF_DEFAULT_OPTS='--layout=reverse'
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
