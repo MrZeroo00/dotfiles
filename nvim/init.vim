@@ -82,6 +82,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'junegunn/goyo.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'metakirby5/codi.vim'
+Plug 'SkyLeach/pudb.vim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()
 
 " Mundo config
@@ -237,6 +238,11 @@ let g:codi#interpreters = {
         \ 'prompt': '^\(>>>\|\.\.\.\) ',
         \ },
 \ }
+" pudb.vim configuration
+let g:pudb_breakpoint_symbol='☠'
+map <leader>dt :PUDBToggleBreakPoint<cr>
+map <leader>du :PUDBUpdateBreakPoints<cr>
+map <leader>dc :PUDBClearAllBreakpoints<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
