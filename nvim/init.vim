@@ -181,6 +181,7 @@ let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+map <leader>l :ALEFix<cr>
 
 " Set ALE linters
 let g:ale_linters = {
@@ -197,6 +198,7 @@ let g:ale_fixers = {
     \'vue': ['eslint'],
     \'css': ['eslint'],
     \'python': ['yapf'],
+    \'cpp': ['clang-format'],
     \'qml': ['qmlfmt'],
     \}
 
@@ -230,6 +232,7 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
 " Codi configuration
 let g:codi#width = 60
 let g:codi#interpreters = {
