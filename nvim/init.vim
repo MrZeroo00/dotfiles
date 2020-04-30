@@ -372,23 +372,6 @@ set foldnestmax=10
 " fold based on indent level
 set foldmethod=indent
 
-" set spell language
-set spelllang=fr,en
-" set different custom dictionnaries
-set spellfile=$VIMRUNTIME/spell/fr.utf-8.add,$VIMRUNTIME/spell/en.utf-8.add
-" set binding for turning on/off spell check
-nnoremap <Leader>ts :setlocal spell! spell?<Return>
-" set binding to open macOS dictionnary from vim
-nnoremap <Leader>zd "zyiw:execute ":silent !open dict://".@z.""<CR>
-" set easier dict move bindings
-nnoremap <Leader>zn ]s
-nnoremap <Leader>zp [s
-nnoremap <Leader>zN G[s
-nnoremap <Leader>zP gg]s
-" set easier add to custom dict bindings
-nnoremap <Leader>zf 1z
-nnoremap <Leader>ze 2z
-
 
 """"""""""""""""""""""""""""""
 " => Visual mode related
@@ -456,11 +439,26 @@ map 0 ^
 " Pressing ,ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
+" set spell language
+set spelllang=fr,en
+
+" set different custom dictionnaries
+set spellfile=$VIMRUNTIME/spell/fr.utf-8.add,$VIMRUNTIME/spell/en.utf-8.add
+
 " Shortcuts using <leader>
 map <leader>sn ]s
+map <Leader>sN G[s
 map <leader>sp [s
+map <leader>sP gg]s
 map <leader>sa zg
 map <leader>s? z=
+
+" set easier add to custom dict bindings
+map <Leader>sf 1z
+map <Leader>se 2z
+
+" set binding to open macOS dictionnary from vim
+nnoremap <Leader>sd "zyiw:execute ":silent !open dict://".@z.""<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
