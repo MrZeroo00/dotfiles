@@ -340,7 +340,7 @@ set classify+=' ::*.aac,,*.anx,,*.asf,,*.au,,*.axa,,*.m2a,,*.m4a,,*.mid,,*.mi
 set classify+=' ::*.mp3,,*.flac,,*.wav,,*.ogg,,*.wma::'
 " media
 set classify+=' ::*.ts,,*.axv,,*.divx,,*.m2v,,*.m4p,,*.m4v,,.mka,,*.mp4v,,*.nuv,,*.ogv,,*.pbm,,*.pgm,,*.qt,,*.vob,,*.xvid::'
-set classify+=' ::*.avi,,*.wmv,,*.m[p]eg,,*.rmvb,,*.rm,,*.mkv,,*.flv,,*.mp4,,*.mov,,*.webm::'
+set classify+=' ::*.avi,,*.wmv,,*.m[p]eg,,*.rmvb,,*.rm,,*.mkv,,*.flv,,*.mp4,,*.mov,,*.webm::'
 " office files
 set classify+=' ::*.doc,,*.docx::, ::*.xls,,*.xls[mx]::, ::*.pptx,,*.ppt::'
 " devicons
