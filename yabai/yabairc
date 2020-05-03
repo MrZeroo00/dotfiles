@@ -25,4 +25,13 @@ yabai -m config left_padding                 0
 yabai -m config right_padding                0
 yabai -m config window_gap                   0
 
-echo "yabai configuration loaded.."
+# If no window on the current space is focused after a window is destroyed or
+# minimized, or an application is hidden, focus the window under the cursor.
+yabai -m signal --add event=window_destroyed \
+  action="yabai -m window --focus mouse 2>/dev/null || true"
+yabai -m signal --add event=window_minimized \
+  action="yabai -m window --focus mouse 2>/dev/null || true"
+yabai -m signal --add event=application_hidden \
+  action="yabai -m window --focus mouse 2>/dev/null || true"
+
+echo "yabai configuration loaded"

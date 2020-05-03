@@ -66,3 +66,11 @@ alt - f : yabai -m window --toggle zoom-fullscreen
 
 # toggle window split type
 alt - e : yabai -m window --toggle split
+
+# minimize current window
+alt - m : yabai -m query --windows --window | jq '.id' | xargs yabai -m window $1 --minimize
+
+# deminimize all windows
+alt - s : yabai -m query --windows |\
+  jq '.[] | select(.minimized == 1).id' |\
+  xargs -L1 -I{} yabai -m window {} --deminimize
