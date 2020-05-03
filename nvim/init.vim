@@ -58,22 +58,12 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'pbogut/fzf-mru.vim'
 Plug 'tpope/vim-commentary'
-" Be careful with deoplete speed
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'honza/vim-snippets'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'ryanoasis/vim-webdevicons'
 Plug 'mhinz/vim-signify'
-Plug 'dense-analysis/ale'
 Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-fugitive'
-" Deoplete Python completion engine
-Plug 'deoplete-plugins/deoplete-jedi'
-" Deoplete JS completion engine
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/indentLine'
 Plug 'machakann/vim-sandwich'
@@ -83,6 +73,12 @@ Plug 'junegunn/goyo.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'metakirby5/codi.vim'
 Plug 'SkyLeach/pudb.vim', { 'do': ':UpdateRemotePlugins' }
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'liuchengxu/vista.vim'
 call plug#end()
 
 " Mundo config
@@ -126,39 +122,6 @@ endfunction" Make :Ag not match file names, only the file content
 command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 command! -bang -nargs=+ -complete=dir Rag call fzf#vim#ag_raw(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
-" Deoplete config
-" Use deoplete
-let g:deoplete#enable_at_startup = 1
-set splitbelow
-" Automatically close the method preview window
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-" Navigate through the auto-completion list with Tab
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-
-" Deoplete-ternjs config
-" Whether to include the types of the completions in the result data. Default: 0
-let g:deoplete#sources#ternjs#types = 1
-" Whether to include documentation strings (if found) in the result data. Default: 0
-let g:deoplete#sources#ternjs#docs = 1
-" Whether to use a case-insensitive compare between the current word and potential completions. Default 0
-let g:deoplete#sources#ternjs#case_insensitive = 1
-"Add extra filetypes
-let g:deoplete#sources#ternjs#filetypes = [
-                \ 'vue',
-                \ ]
-
-" Neosnippet config
-" Set neosnippet directory
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.config/nvim/plugged/vim-snippets/snippets'
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
 " NERDtree config
 let NERDTreeShowHidden=0
 let NERDTreeQuitOnOpen = 1
@@ -174,33 +137,6 @@ map <leader>nf :NERDTreeFind<cr>
 set updatetime=100
 " Disable vim-signify for CSV files for performance purpose
 let g:signify_skip_filetype = { 'csv': 1 } 
-
-" ALE config
-" Change default ALE symbols
-let g:ale_sign_error = '✘'
-let g:ale_sign_warning = '⚠'
-highlight ALEErrorSign ctermbg=NONE ctermfg=red
-highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
-map <leader>l :ALEFix<cr>
-
-" Set ALE linters
-let g:ale_linters = {
-    \'javascript': ['eslint'],
-    \'vue': ['eslint'],
-    \'css': ['eslint'],
-    \'python': ['pyls'],
-    \'c': ['cppcheck'],
-    \}
-
-" Set ALE fixers
-let g:ale_fixers = {
-    \'javascript': ['eslint'],
-    \'vue': ['eslint'],
-    \'css': ['eslint'],
-    \'python': ['yapf'],
-    \'cpp': ['clang-format'],
-    \'qml': ['qmlfmt'],
-    \}
 
 " Gutentags configuration
 let g:gutentags_project_root = ['main.c', '.git']
@@ -246,6 +182,36 @@ let g:pudb_breakpoint_symbol='☠'
 map <leader>dt :PUDBToggleBreakPoint<cr>
 map <leader>du :PUDBUpdateBreakPoints<cr>
 map <leader>dc :PUDBClearAllBreakpoints<cr>
+
+" Autocomplete configuration
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+
+" LSP configuration
+let g:lsp_signs_enabled = 1         " enable signs
+let g:lsp_signs_error = {'text': '✘'}
+let g:lsp_signs_warning = {'text': '⚠'}
+let g:lsp_signs_hint = {'text': '⚑'}
+highlight link LspErrorText ErrorMsg
+highlight link LspWarningText WarningMsg
+map <leader>ld :LspDefinition<cr>
+map <leader>lf :LspDocumentFormat<cr>
+map <leader>ln :LspNextDiagnostic<cr>
+map <leader>lp :LspPreviousDiagnostic<cr>
+map <leader>lr :LspReferences<cr>
+map <leader>lrr :LspRename<cr>
+map <leader>ls :LspStatus<cr>
+
+
+" Vista configuration
+let g:vista#renderer#enable_icon = 1
+let g:vista_executive_for = {
+	\ 'cpp': 'vim_lsp',
+	\ 'python': 'vim_lsp',
+	\ }
+map <leader>lv :Vista!!<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
