@@ -90,7 +90,18 @@ map <leader>b :Buffers<cr>
 map <leader>f :FZF<cr>
 map <leader>a :Ag<cr>
 map <leader>m :FZFMru<cr>
+
+" mapping selecting mappings
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+" insert mode completion
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-l> <plug>(fzf-complete-line)
 let $FZF_DEFAULT_OPTS='--layout=reverse'
+
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
 function! FloatingFZF()
