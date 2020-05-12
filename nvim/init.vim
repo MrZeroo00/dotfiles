@@ -409,6 +409,9 @@ let g:lightline = {
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
+" make Y consistent with C and D and copy from cursor position
+" until the end of line
+nnoremap Y y$
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
